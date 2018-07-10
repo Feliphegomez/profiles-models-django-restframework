@@ -4,6 +4,11 @@ from snippets.models import Snippet, LANGUAGE_CHOICES, STYLE_CHOICES
 
 from django.contrib.auth.models import User
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import authentication, permissions
+from django.contrib.auth.models import User
+
 
 class UserSerializer(serializers.ModelSerializer):
     snippets = serializers.PrimaryKeyRelatedField(many=True, queryset=Snippet.objects.all())
